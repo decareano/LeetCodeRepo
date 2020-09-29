@@ -1,5 +1,3 @@
-#7 LC reverse integer
-
 let myNum = -1234;
 
 var reverse = function(num) {
@@ -19,8 +17,8 @@ var reverse = function(num) {
     return isNegative ? -a_num : a_num
 
 }
-//const reversedNum = num => parseFloat(num.toString()
-//.split('').reverse().join('')) * Math.sign(num)
-//line 6: Use .sort((a,b) => a-b) for sorting purposes for increments
-// for descending alter the operators: .sort((a,b) => b-a
-reverse(myNum)
+ //const reversedNum = num => parseFloat(num.toString()
+ //.split('').reverse().join('')) * Math.sign(num)
+ //line 6: Use .sort((a,b) => a-b) for sorting purposes for increments
+ // for descending alter the operators: .sort((a,b) => b-a
+ reverse(myNum)
