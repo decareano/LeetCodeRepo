@@ -1,0 +1,64 @@
+//isPalindrome LL but doing with front and back as opposed to fast/slow and reversing the last half of LL
+
+function ListNode(val, next) {
+     this.val = (val===undefined ? 0 : val)
+     this.next = (next===undefined ? null : next)
+}
+
+var isPalindrome = function(head) {
+    if (head === null || head.next === null) {
+      return true;
+    }
+    
+   
+    let currVal = head
+    let myArr = []
+    //lets determine the middle so we need to loop with the fast first
+    // so it reaches null....that would be our middle
+    
+    while (currVal !== null) {
+      myArr.push(currVal.val)
+      currVal = currVal.next
+    }
+  
+      // we are going to add the values to the arr
+      // declare empty arr please
+      // note: we are dealing with the SECOND half of array here. I think
+      
+      
+      // the stack will dump the numbers like this: 
+      // 4 will go to the bottom and then 3...so we pop 3 first and then
+      //4
+    let front = 0;
+    let back = myArr.length - 1
+    
+       while (front < back) {
+        if (myArr[front] !== myArr[back] ) {
+          console.log(myArr[front])
+          console.log(myArr[back])
+          return false
+          
+        }
+        front++
+          back--
+       }
+       
+       return true
+       
+        
+      
+      
+      
+
+}
+// var l1= new ListNode(2,4,3)
+// var l2= new ListNode(5,6,9)
+
+// let list = new LinkedList()
+
+//any differences between '2' and 2 ????
+
+console.log(isPalindrome({ val: 2, next: { val: 3, next: { val: 3, next: { val: 2, next: null } } } }))
+//console.log(isPalindrome({ head: null, next: null }))
+
+//console.log(addTwoNumbers(l1, l2))
