@@ -1,0 +1,33 @@
+//isPalindrome LL with the right code 2/26
+
+var isPalindrome = function (head)  {
+  
+  if (head === null || head.next === null)
+      return true;
+    
+    let slow = head
+    let fast = head
+    let curr = head
+    
+    //find middle with both variables
+    
+    while (fast != null && fast.next != null) {
+        slow = slow.next;
+        fast = fast.next.next;
+    }
+    
+    let stack = []
+    while (slow != null) {
+        stack.push(slow.val)
+        slow = slow.next;
+    }
+    
+    while (stack.length) {
+        if (curr.val != stack.pop()) {
+            return false;
+        }
+        curr = curr.next;
+    }
+    
+    return true;
+}
