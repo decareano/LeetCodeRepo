@@ -1,0 +1,17 @@
+isPalindrome on my own:
+
+var isPalindrome = function(nums) {
+   
+    for (let i = 0; nums.length; i++) {
+      let first = nums[i]
+      let last = nums[nums.length -1 - i]
+        if (first !== last) {
+          
+          return false
+        }
+    }
+    return true
+    
+}
+
+console.log(isPalindrome([2,4,7,2]))
