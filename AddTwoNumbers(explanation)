@@ -1,0 +1,25 @@
+while(l1 != null || l2 != null || sum > 0) {
+      if (l1 != null) {
+        sum += l1.val
+        l1 = l1.next
+      }
+      
+      if (l2 != null) {
+        // sum of first two digits happens here
+        sum += l2.val
+        l2 = l2.next
+      }
+      //I need to articulate a sum in a new ListNode
+     
+      // carry result below 0
+      carry = Math.floor(sum / 10)
+      // actual sum below 7
+      sum = sum % 10
+      // need to create new nodes and pass the value of sum to them
+      currVal.next = new ListNode(sum)
+      currVal = currVal.next
+      //swap carry and sum values
+      sum = carry
+      carry = 0;
+      
+    }
