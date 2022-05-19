@@ -1,0 +1,20 @@
+const l1 = { val: 2, next: { val: 4, next: { val: 3, next: null } } }
+
+const result = []
+let head = l1
+
+while (head !== null) {
+  result.push(head.val)
+  head = head.next
+}
+
+console.log(result)
+
+
+
+
+// note the final result is a LL not an array
+//const l1 = { val: 2, next: { val: 4, next: { val: 3, next: null } } }
+//const l2 = { val: 5, next: { val: 6, next: { val: 4, next: null } } }
+
+//addTwoNumbers(l1, l2)
