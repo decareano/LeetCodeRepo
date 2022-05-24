@@ -1,0 +1,68 @@
+var isPalindrome = function(head) {
+    
+    let currentNode = head
+    console.log(currentNode)
+    console.log(head)
+    let result = []
+    // we convert to array
+    while (currentNode !== null) {
+        result.push(currentNode.val)
+        currentNode = currentNode.next
+        
+    }
+    // two pointer technique 
+    let slow = head
+    let fast = head.next
+    let curr = head
+    // after running below, you get Slow is 4 and fast is null in the 
+    // second iter...so, Slow is 4 and fast is null
+    // and then we go into the stack to compare values
+    while (fast !== null && fast.next !== null) {
+      console.log(fast)
+      console.log(fast.next)
+      slow = slow.next
+      fast = fast.next.next
+    }  
+    //we reverse array   
+    // let prev = null
+    // let curr = head
+    // let next = null
+    
+    // while (curr !== null) {
+    //   next = curr.next
+    //   curr.next = prev
+    //   prev = curr
+    //   curr = next
+     
+    // }
+    
+    let stack = []
+    // when we run the 2PT the value of Slow was in the middle, so now
+    // Slow starts at 4
+    while (slow != null) {
+      stack.push(slow.val)
+      slow = slow.next
+    }
+    
+    while (stack.length) {
+      if (curr.val !== stack.pop()) {
+        console.log(curr.val) //OK 
+        console.log(stack.pop()) //undefined
+        return false
+      }
+      curr = curr.next
+    }
+    return true
+    
+    
+
+};
+
+ //In the two-pointer technique, we put a pointer at the start and 
+ //a pointer at the end, and at each step check the values are 
+ //equal and then move the pointers inwards until they meet at the center.
+
+isPalindrome({ val: 2, next: { val: 4, next: { val: 3, next: { val: 4, next: { val: 2, next: null} } } } })
+
+//isPalindrome({ val: 2, next: { val: 4, next: { val: 2, next: null } } })
+//const l2 = { val: 5, next: { val: 6, next: { val: 4, next: null } } }
