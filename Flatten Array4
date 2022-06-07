@@ -1,0 +1,43 @@
+  function* listGenerator(nestedList) {
+    for (let el of nestedList) {
+        if (el.isInteger()) {
+            yield el.getInteger();
+        } else {
+            yield* listGenerator(el.getList());
+        }
+    }
+}
+
+var NestedIterator = function(nestedList) {
+    
+  this.gen = listGenerator(nestedList)
+  this.val = this.gen.next()
+ 
+}
+
+
+
+/**
+ * @this NestedIterator
+ * @returns {boolean}
+ */
+NestedIterator.prototype.hasNext = function() {
+   return !this.val.done;
+};
+
+/**
+ * @this NestedIterator
+ * @returns {integer}
+ */
+NestedIterator.prototype.next = function() {
+    var num = this.val.value;
+    this.val = this.gen.next();
+    return num;
+};
+
+/**
+ * Your NestedIterator will be called like this:
+ * var i = new NestedIterator(nestedList), a = [];
+ * while (i.hasNext()) a.push(i.next());
+*/
+
