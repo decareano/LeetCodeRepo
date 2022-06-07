@@ -1,0 +1,25 @@
+function steamrollArray (nested)  {
+  const flat = [];
+  // appears to be recursive function???
+  function handleFlat (arr)  {
+    let counter = 0
+    while (counter < arr.length) {
+      console.log(arr.length)
+      // val equals to arr[counter] which is 1 at this point
+      
+      const val = arr[counter];
+      console.log(val)
+      // we pass the val value and ask if it's an array or not
+      if (Array.isArray(val)) {
+        handleFlat(val);
+      } else {
+        flat.push(val)
+      }
+      counter++;
+    }
+  }
+  handleFlat(nested);
+  return flat; 
+}
+
+steamrollArray([1, [2], [3, [[4]]]]);
