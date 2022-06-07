@@ -1,0 +1,19 @@
+function nestedIterator(nestedList) {
+  let res = []
+  //for (let i = 0; i < nestedList.length; i++) {
+  let counter = 0
+  while (counter < nestedList.length) {
+    let value = nestedList[counter]
+    if (Array.isArray(value)) {
+      res.push(...nestedIterator(value))
+    } else {
+      res.push(value)
+    }
+    counter++
+      
+  }
+  return res
+  
+}
+
+nestedIterator([1, [2], [3, [[4]]]])
