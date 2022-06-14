@@ -1,0 +1,18 @@
+var sortedSquares = function(nums) {
+    let newArr = []
+    for (let  i= 0; i <nums.length; i++){
+    //let i = 0
+    //while (i < nums.length) {
+        let myComp = nums[i] * nums[i]
+        
+        newArr.push(myComp)
+        //i++
+        
+    }
+    newArr.sort(function(a, b) {
+        return a - b;
+    });
+    return newArr
+};
+
+sortedSquares[-4, -1, 0, 3, 10]
