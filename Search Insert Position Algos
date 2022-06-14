@@ -1,0 +1,27 @@
+var searchInsert = function(nums, target) {
+    let start = 0
+    let end = nums.length - 1
+    //console.log(end)
+    
+     while (start < end) {
+          let mid = Math.floor((start + end) / 2); 
+          console.log(mid)
+          //nums mid will return the number as opposed to the index
+          if (nums[mid] === target) return mid
+          nums[mid] > target ? end=mid : start = mid + 1
+          console.log(nums[mid] > target ? end=mid : start = mid + 1)
+          //start++
+
+          
+     }
+     
+    if (start === end){
+      console.log(nums[start])
+      //below code with return the previous index of a number that is
+      //not in the sequence as a number...
+        return target <= nums[start] ? start : start + 1;
+    }
+     
+};
+
+console.log(searchInsert([2,4,6,9], 8))
