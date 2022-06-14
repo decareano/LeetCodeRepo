@@ -1,0 +1,31 @@
+var solution = function(isBadVersion) {
+    return function(n) {
+        let begin = 1;
+        let ending = n;
+        //console.log(ending) //5
+        while (begin < ending){
+            //console.log(begin) //1
+            //console.log(ending) //5 
+            
+            let badVal = Math.floor(begin + ending) / 2; //3
+            const guess = isBadVersion(badVal)
+            console.log(guess)
+            console.log(badVal)
+            
+            if(guess) {   
+                //console.log(guess)   // 5
+                //console.log(middleVal)
+                ending = badVal    
+                console.log(ending)
+            
+            } else {
+                 if(begin === badVal) 
+                     
+                     return ending;
+                 begin = badVal
+            }
+        }
+        
+        return ending;
+    };
+};
