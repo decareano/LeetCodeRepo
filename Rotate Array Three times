@@ -1,7 +1,8 @@
 var rotate = function(nums, k) {
  
- 
-  
+    // below coding makes it work when you have negative number(ie: you have two indeces and a number 5 for target) so the substraction will be -3
+    // but if you use k % nums.length does not work
+    k %= nums.length
     //nums.push(nums.shift());
       nums.unshift(...nums.splice(nums.length - k))
       console.log(nums.length - k)
