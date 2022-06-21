@@ -1,0 +1,20 @@
+var reverseString = function(s) {
+    
+    for (let i = 0; i < s.length/2; i++) {
+        console.log(i)
+        console.log(s.length/2)
+        // no extra memory used if we use the old switchro
+        let temp = s[i]
+        console.log(temp)
+        
+        // look at below construct. Not quite sure about it
+        
+        s[i] = s[s.length-i-1]
+        console.log(s[s.length-i-1])
+        s[s.length-i-1] = temp
+        console.log(temp)
+        //rev += s[i]
+    }
+    return s
+    
+};
