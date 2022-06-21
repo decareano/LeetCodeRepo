@@ -1,0 +1,22 @@
+var reverseWords = function(s) {
+    
+    //for (let i = 0; i < s.length; i++) {
+   //for (let i = s.length - 1; i >= 0; i--){
+   // missed the approach here...was dealing with strings 
+   // and the way to solve it is by splitting the string 
+   // then initialize an empty array. use array of to reverse 
+   // and join
+      let arr = s.split(" ");
+    let result = [];
+    for(let a of arr){
+        a = a.split("").reverse().join("");
+        result.push(a)
+        
+    }
+    return result.join(" ");
+   
+  
+
+};
+
+reverseWords("Let's take LeetCode contest")
