@@ -20,3 +20,6 @@ var reverseWords = function(s) {
 };
 
 reverseWords("Let's take LeetCode contest")
+
+// with strings you need to split them and put them into an array
+// then you push to the new array.
