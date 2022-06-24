@@ -1,0 +1,22 @@
+var middleNode = function(head) {
+  let slow = head
+   let fast = head
+    //let middleNode = []
+    while (fast !== null && fast.next !== null) {
+      if (slow !== null) {
+         slow = slow.next
+      }
+      if (fast !== null) {
+        fast = fast.next.next
+        
+      }
+      //middleNode.push(slow.val)
+      
+      
+    }
+    //console.log(middleNode.push(slow.val))
+    return slow
+};
+
+//middleNode([1,2,3,4,5])
+console.log(middleNode({ val: 1, next: { val: 2, next: { val: 3, next: { val: 4, next: {val: 5, next: null} } } }} ))
