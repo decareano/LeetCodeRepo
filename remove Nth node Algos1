@@ -1,0 +1,44 @@
+//code works for deleting first node. works for n = 2 and it kinda fail with last node only cuz it gets a null value
+
+
+var removeNthFromEnd = function(head, n) {
+   // peaking: let's count the LL
+   let myVar = head
+  
+    let count = 0
+    // let's progress through LL
+    while (myVar !== null) {
+      myVar = myVar.next
+      count++
+      
+    }
+    // position of removal item in LL....why? dont know the relationship
+    // between count and how to get the value of last node
+    //let temp = head.length - 1 
+    let pos = count - n + 1
+    if (pos == 1) {
+      return head.next
+    }
+    // resetting count and myVar
+    count = 0
+    myVar = head
+    
+    while (myVar !== null) {
+      // count++ makes it work. without it, it wont work
+      count++
+      if (pos - 1 == count) {
+        // here you break/remove the link from previous to next.next...
+        // therefore deleting the nth node
+        myVar.next = myVar.next.next
+      }
+      // if you dont write below line you get an infinite loop
+      // and remember you are iterating through the while loop
+      console.log(count)
+      myVar = myVar.next
+      console.log(myVar.val)
+    }
+    //console.log(myVar)
+      
+    
+};
+removeNthFromEnd({ val: 1, next: { val: 2, next: { val: 3, next: { val: 4, next: {val: 5, next: null} } } }}, 5)
