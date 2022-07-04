@@ -1,0 +1,35 @@
+var lengthOfLongestSubstring = function(s) {
+  let k = 0
+  let maxLength = 0
+  
+  for (let i = 0; i < s.length; i++) {
+     //for (let j = i+1 ; j < s.length; j++) {
+     
+     //why this setup for the "for loop"
+     //in which k (a variable I initialize) is assigned to j
+     //WTF
+    for (let j = k; j < i; j++) {
+      console.log(s[i], s[j])
+      console.log(j)
+      console.log(k)
+      console.log(i)
+      
+      if (s[i] === s[j]) {
+        k = j + 1
+        break
+      }
+      
+    }
+    if (i - k + 1 > maxLength) {
+            maxLength = i - k + 1;
+        }
+    
+    
+  }
+  return maxLength
+  
+    
+};
+
+
+lengthOfLongestSubstring("pwwkew")
