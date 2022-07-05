@@ -1,0 +1,16 @@
+var runningSum = function(nums) {
+    
+    // here we will set res to first index of nums
+    
+    // below will tell me to start i at 1 not zero
+    // so index 0 will be taken care of
+    let i = 1
+    while (i < nums.length) {
+        nums[i] = nums[i-1] + nums[i]
+        //console.log(res[i-1])
+        i++
+    }
+    return nums
+};
+
+runningSum([1,2,3,4])
