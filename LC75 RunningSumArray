@@ -1,0 +1,12 @@
+var runningSum = function(nums) {
+    let res = []
+    res[0] = nums[0]
+    let i = 1
+    while (i < nums.length) {
+        res[i] = res[i-1] + nums[i]
+        i++
+    }
+    return res
+};
+
+runningSum([1,2,3,4])
