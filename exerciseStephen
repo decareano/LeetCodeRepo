@@ -1,0 +1,102 @@
+//back to this one
+
+//Create a function for creating a new Node object
+//Create the LinkedList class with the proper constructor
+//Create the insert() and print() methods
+//Create the remove() method to remove nodes
+//Create the methods to remove and insert from the head
+
+function makeNode(value) {
+  return {
+    value: value,
+    next: null
+
+  }
+  
+}
+
+class LinkedList {
+    // head is initialize to null Note the constructor
+    constructor() {
+        this.head = null
+        this.tail = null
+    }
+    
+    add(value) {
+      let node = makeNode(value)
+      
+      // empty
+      if (this.tail === null) {
+        
+      this.head = this.tail = node
+      return node
+    }
+      this.tail.next = node
+      this.tail = node
+      return node
+    }
+    
+    insertFront(value) {
+    //this.length++
+    let newNodeFront = makeNode(value);
+    
+
+    newNodeFront.next = this.head
+    this.head = newNodeFront
+      return newNodeFront;
+    }
+    
+    set(idx, value) {
+    let currNode = this.head
+    console.log(node1)
+    
+    let i = 0
+    // question for stephen: what am I missing in the for loop 
+    //for (let i = 0; i < whatGoesInHere???; i++) {
+    while (this.head !== null) {
+        console.log(this.head)
+      
+        if (i === idx) {
+          currNode.value = value
+          return value
+        } else {
+          currNode = currNode.next
+          i++
+        }
+        
+        
+    }
+    return false
+    
+}
+
+
+
+    // size() {
+    //   let count = 0; 
+    //   let node = this.head;
+    //   while (node) {
+    //       count++;
+    //       node = node.next
+    //   }
+    //   return count;
+    // }
+    
+    // getLast() {
+    //   let lastNode = this.head;
+    //   if (lastNode) {
+    //     while(lastNode.next) {
+    //       lastNode = lastNode.next
+    //     }
+    
+    //   }
+    //   return lastNode;
+    // }
+}
+let node1 = new LinkedList()
+node1.add(7)
+node1.add(4)
+node1.add(6)
+node1.insertFront(9)
+//node1.set(1, "Alice")
+console.log("The Object that is replaced is: " + node1.set(1, 12));
