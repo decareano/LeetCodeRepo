@@ -13,7 +13,7 @@ class LinkedList {
         this.head = null
         this.tail = null
     }
-    
+   // ADD a value 
    add(value) {
       let node = makeNode(value)
       
@@ -28,6 +28,7 @@ class LinkedList {
       return node
     }
     
+    // INSERT A VALUE at the FRONT
     insertFront(value) {
     //this.length++
     let newNodeFront = makeNode(value);
@@ -37,7 +38,7 @@ class LinkedList {
     this.head = newNodeFront
       return newNodeFront;
     }
-    
+    // UPDATE A NODE 
     set(index, value) {
     let currNode = this.head
     console.log(node1)
@@ -60,7 +61,7 @@ class LinkedList {
     }
     return false
     }
-    
+    // REMOVE A NODE
     removeIndex(index) {
       let currNode = this.head
       let previous = null
@@ -88,7 +89,7 @@ class LinkedList {
       //this.length--
       return currNode
     }
-    
+    // ANOTHER WAY TO REMOVE A NODE
     // removeIndex(index) {
     //   if (index >= this.length) {
     //     throw error("out of bounds")
