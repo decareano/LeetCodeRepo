@@ -6,6 +6,7 @@
 //Create the remove() method to remove nodes
 //Create the methods to remove and insert from the head
 
+//here we "add" and insertFront
 function makeNode(value) {
   return {
     value: value,
