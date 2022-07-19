@@ -1,0 +1,120 @@
+function makeNode(value) {
+  return {
+    value: value,
+    next: null
+
+  }
+  
+}
+
+class LinkedList {
+    // head is initialize to null Note the constructor
+    constructor() {
+        this.head = null
+        this.tail = null
+    }
+    
+   add(value) {
+      let node = makeNode(value)
+      
+      // empty
+      if (this.tail === null) {
+        
+      this.head = this.tail = node
+      return node
+    }
+      this.tail.next = node
+      this.tail = node
+      return node
+    }
+    
+    insertFront(value) {
+    //this.length++
+    let newNodeFront = makeNode(value);
+    
+
+    newNodeFront.next = this.head
+    this.head = newNodeFront
+      return newNodeFront;
+    }
+    
+    set(index, value) {
+    let currNode = this.head
+    console.log(node1)
+    
+    let i = 0
+    // question for stephen: what am I missing in the for loop 
+    //for (let i = 0; i < whatGoesInHere???; i++) {
+    while (this.head !== null) {
+        console.log(this.head)
+      
+        if (i === index) {
+          currNode.value = value
+          return value
+        } else {
+          currNode = currNode.next
+          i++
+        }
+        
+        
+    }
+    return false
+    }
+    
+    removeIndex(index) {
+      let currNode = this.head
+      let previous = null
+      let currIndex = 0
+      
+      
+      
+      
+      while(currIndex !== index) {
+        console.log(currNode)
+        console.log(currIndex)
+        console.log(index)
+        
+        previous = currNode
+        currNode = currNode.next
+        //currNode = next
+        currIndex++
+        
+      }
+      //if currNode === index what do I do
+      previous.next = currNode.next
+      currNode.next = null
+      console.log(currNode)
+      //not clear on this.length
+      //this.length--
+      return currNode
+    }
+    
+    // removeIndex(index) {
+    //   if (index >= this.length) {
+    //     throw error("out of bounds")
+    //   }
+      
+    //   if (index === 0) {
+    //       return this.removeHead();
+    //   }
+    //   this.length--
+    //   let previousNode = null;
+    //   let currentNode = this.head;
+    //   for (let i = 0; i < index; i++) {
+    //     previousNode = currentNode;
+    //     currentNode = currentNode.next;
+    //   }
+    //   previousNode.next = currentNode.next;
+    //   this.length--;
+    //   return currentNode;
+    // }
+}
+let node1 = new LinkedList()
+node1.add(7)
+node1.add(4)
+node1.add(6)
+node1.insertFront(9)
+//node1.set(1, "Alice")
+console.log("The Object that is replaced is: " + node1.set(1, 12));
+node1.removeIndex(1)
+console.log(node1)
