@@ -1,0 +1,156 @@
+//back to this one
+
+//Create a function for creating a new Node object
+//Create the LinkedList class with the proper constructor
+//Create the insert() and print() methods
+//Create the remove() method to remove nodes
+//Create the methods to remove and insert from the head
+
+function makeNode(value) {
+  return {
+    value: value,
+    next: null
+  }
+}
+
+class LinkedList {
+    // head is initialize to null Note the constructor
+    constructor() {
+        this.head = null
+        this.tail = null
+    }
+    
+    add(value) {
+      let node = makeNode(value)
+      
+        //list empty
+        if (this.tail === null) {
+        
+          this.head = this.tail = node
+          return node
+        }
+        //not empty
+        this.tail.next = node
+        this.tail = node
+        return node
+    }
+    
+    insertFront(value) {
+        //this.length++
+        let newNodeFront = makeNode(value);
+    
+
+        newNodeFront.next = this.head
+        this.head = newNodeFront
+        return newNodeFront;
+    }
+    
+    set(index, value) {
+    let currNode = this.head
+    console.log(node1)
+    
+    let i = 0
+    // question for stephen: what am I missing in the for loop 
+    //for (let i = 0; i < whatGoesInHere???; i++) {
+        while (this.head !== null) {
+          console.log(this.head)
+      
+          if (i === index) {
+            currNode.value = value
+            return value
+          } else {
+            currNode = currNode.next
+            i++
+          }
+        }
+        return false
+    }
+    
+    removeFirst() {
+      if (this.head) {
+        console.log(this.head)
+        this.head = this.head.next
+        //this.length--
+        console.log(this.head)
+        return this.head
+      }
+    }
+    
+    removeLast() {
+      if (this.tail) {
+        console.log(this.tail)
+        this.tail = this.tail.next
+        console.log(this.tail)
+        return this.tail
+      }
+    }
+    
+    removeIndex(index) {
+      let currNode = this.head
+      let previous = null
+      let currIndex = 0
+      
+      if (currIndex === index) {
+        return this.removeFirst()
+      }
+      
+      if (currIndex === index) {
+        return this.removeLast()
+      }
+      
+     
+      while(currIndex !== index) {
+        console.log(currNode)
+        console.log(currIndex)
+        console.log(index)
+        
+        previous = currNode
+        currNode = currNode.next
+        //currNode = next
+        currIndex++
+        
+      }
+      //if currNode === index execute below
+      previous.next = currNode.next
+      currNode.next = null
+      console.log(currNode)
+      //not clear on this.length
+      //this.length--
+      return currNode
+    }
+    
+    getLength() {
+        let count = 0
+        let curr = this.head
+        while (curr) {
+        
+          count++
+          curr = curr.next
+        }
+        return count
+    }
+    
+    print() {
+        let curr = this.head
+        while (curr) {  //meaning if curr is true or truthy
+          console.log(curr.value)
+          curr = curr.next
+        }
+    }
+    
+    clear() {
+      this.head = null;
+    }
+}
+let node1 = new LinkedList()
+//node1.add(7)
+node1.add("Marcelo")
+node1.insertFront("Steve")
+node1.set(1, "Pietro")
+node1.removeIndex(0)
+node1.add("Natalie")
+node1.add("Giuseppe")
+node1.removeIndex(2)
+node1.getLength()
+node1.print()
+node1.clear()
