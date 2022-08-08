@@ -1,0 +1,41 @@
+function makeNode(value) {
+  return {
+    value: value,
+    next: null
+  }
+}
+
+
+var swapNodes = function(head, k) {
+  
+    let kpointer = head  //kpointer
+    let slowP = head  //slowP
+    let fastP = head //fastP
+    
+      //for (let i in kpointer) {
+      for (let i = 1; i < k; i++) {
+        kpointer = kpointer.next
+        fastP = fastP.next
+      } 
+        
+    
+    
+        while (kpointer.next) {
+          kpointer = kpointer.next
+          slowP = slowP.next
+        }
+        
+        
+        let temp = slowP.val
+        slowP.val = fastP.val
+        fastP.val = temp
+        
+        return head
+        
+       
+      
+    
+}
+console.log(swapNodes({ val: 7, next: { val: 9, next: { val: 6, next: { val: 6, next: { val: 7, next: { val: 8, next: { val: 3, next: { val: 0, next: { val: 9, next: { val: 5, next: null }}}}} } }}} }, 5))
+
+//console.log(swapNodes({ val: 1, next: { val: 2, next: { val: 3, next: { val: 4, next: { val: 5, next: null } }}} }, 2))
