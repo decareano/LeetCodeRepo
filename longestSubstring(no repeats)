@@ -1,0 +1,45 @@
+import java.util.Arrays;
+import java.util.*;
+
+public class Solution {
+  
+    public static void main(String[] args) {
+        String a = "abcabcbb";
+        Solution.lengthOfLongestSubstring(a);
+    }
+    
+    public static boolean hasUniqueChars(String str) {
+        char[] chars = str.toCharArray();
+        Arrays.sort(chars);
+        for (int i = 1; i < chars.length; ++i) {
+            if (chars[i] == chars[i-1]) {
+                return false;
+            }
+        }
+        return true;
+    }
+
+
+  
+  
+    public static int lengthOfLongestSubstring(String s) {
+        int longest = 1;
+        int len = 0;
+        if (s.length() == 0)
+            return 0;
+
+        for (int i = 0; i < s.length(); i++) {
+            //int curr = 1;
+            for (int j = i + 1; j < s.length(); j++) {
+                String sub = s.substring(i, j+1);
+                if (hasUniqueChars(sub))
+                  //longest = max(longest, );
+                   longest = Math.max(longest, j - i + 1);
+                System.out.println(sub);
+                
+            }
+        }
+        return longest;
+
+    }
+}
